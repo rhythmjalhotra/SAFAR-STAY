@@ -1,0 +1,69 @@
+<% layout("/layouts/boilerplate")%>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3> create a new listing</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data" >
+        <div class="mb-3">
+            <lable for="title" class="form-label">Title</lable>
+            <input name="listing[title]" value= "<%= listing.title %>" type="text" class="form-control" required>
+            <div class="valid-feedback">Title looks good!</div>
+        </div>
+   
+  <div class="mb-3">
+    <lable for="description" class="form-label">description</lable>
+   <textarea name="listing[description]" type="text"  class="form-control" required><%= listing.description%></textarea>
+   <div class="invalid-feedback">Please write a short description</div>
+  </div>
+
+  <div class="mb-3">
+    original Listing image<br/>
+    <img src="<%= originalImageUrl %>" >
+  </div>
+   
+  <div class="mb-3">
+    <lable for="image" class="form-label">upload new image</lable>
+    <input name="listing[image]"  type="file" class="form-control" >
+   
+  </div>
+
+  <div class="row">
+    <div class="mb-3 col-md-4">
+    <lable for="price" class="form-label">price</lable>
+    <input name="listing[price]" value= "<%= listing.price%>" type="number"  class="form-control" required>
+    <div class="invalid-feedback">price should be valid</div>
+   </div>
+
+   <div class="mb-3 col-md-8">
+    <lable for="country" class="form-label">country</lable>
+   <input name="listing[country]" value= "<%= listing.country%>" type="text"  class="form-control" required>
+   <div class="invalid-feedback">Country name should be valid</div>
+  </div>
+</div> 
+  
+   <div class="mb-3">
+    <lable for="location" class="form-label">location</lable>
+    <input name="listing[location]" value= "<%= listing.location%>" type="text"  class="form-control" required>
+    <div class="invalid-feedback">Location should be valid</div>
+   </div>
+  
+   <div class="mb-3">
+    <label for="category" class="form-label">Category</label><br>
+    <select name="listing[category]">
+        <option value="Trending" >Trending</option>
+        <option value="Rooms" >Rooms</option>
+        <option value="Iconic Cities">Iconic Cities</option>
+        <option value="Mountains">Mountains</option>
+        <option value="Castles">Castles</option>
+        <option value="Amazing Pools">Amazing Pools</option>
+        <option value="Camping">Camping</option>
+        <option value="Farms">Farms</option>
+        <option value="Arctic">Arctic</option>
+    </select>
+
+   </div> 
+   <!-- listing ek object bnaya or baki uske key value pair hei -->
+   <button class="btn btn-dark edit-btn mt-3">edit</button>
+    </form>
+  </div>
+</div>
+
